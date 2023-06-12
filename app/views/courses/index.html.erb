@@ -1,0 +1,41 @@
+<div class="container">
+  <p style="color: green"><%= notice %></p>
+
+  <h1>Courses: <%= @courses.size %></h1>
+
+  <div id="courses">
+  </div>
+
+  <%= link_to "New course", new_course_path, class:'btn btn-success' %>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @courses.each do |course| %>
+    <tr>
+        <th scope="row"><%= course.id %></th>
+        <td><%= course.title %></td>
+        <td><%= course.description %></td>
+        <td>
+          <%= link_to course, class:'btn btn-primary' do  %>
+            <i class="fa-solid fa-eye"></i>
+          <% end %>
+          <%= link_to edit_course_path(course), class:'btn btn-secondary' do %>
+            <i class="fa-solid fa-pen"></i>
+          <% end %>
+          <%= button_to course, method: :delete,  form: {data: {turbo_confirm: 'Are you sure?'}}, class:'btn btn-danger' do %>
+            <i class="fa-solid fa-trash"></i>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
