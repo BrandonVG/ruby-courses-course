@@ -14,6 +14,7 @@
         <th scope="col">#</th>
         <th scope="col">Title</th>
         <th scope="col">Description</th>
+        <th scope="col">User</th>
         <th scope="col">Actions</th>
       </tr>
     </thead>
@@ -23,6 +24,7 @@
         <th scope="row"><%= course.id %></th>
         <td><%= course.title %></td>
         <td><%= course.description %></td>
+        <td><%= course.user %></td>
         <td>
           <%= link_to course, class:'btn btn-primary' do  %>
             <i class="fa-solid fa-eye"></i>
