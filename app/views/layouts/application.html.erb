@@ -9,13 +9,9 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
-
   <body>
-  <main class="container">
-    <%= render "layouts/navbar"%>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
-  </main>
+  <%= render "layouts/navbar"%>
+  <%= render 'layouts/messages' %>
+  <%= yield %>
   </body>
 </html>
