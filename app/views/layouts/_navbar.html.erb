@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Rubygems</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
+  <<%= link_to "Rubygems", root_path, class:'navbar-brand' %>>
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -18,11 +18,17 @@
             Courses
           <% end %>
         </li>
+        <li class="<%= 'active font-weight-bold' if current_page?(courses_path) %> nav-item">
+          <%= link_to new_course_path, class: 'nav-link' do %>
+            <div class="fa fa-plus"></div>
+            New course
+          <% end %>
+        </li>
       </ul>
       <div class="form-inline my-2 my-lg-0">
-        <%= form_tag(root_path, method: :get) do %>
+        <%= form_tag(courses_path, method: :get) do %>
           <div class="input-group">
-            <%= text_field_tag :name, params[:name], autocomplete: 'off', placeholder: "Search", class: 'form-control-sm' %>
+            <%= text_field_tag :title, params[:title], autocomplete: 'off', placeholder: "Search", class: 'form-control-sm' %>
             <span class="input-group-append">
               <button class="btn btn-primary btn-sm" type="submit">
                 <span aria-hidden="true" class="fa fa-search"></span>

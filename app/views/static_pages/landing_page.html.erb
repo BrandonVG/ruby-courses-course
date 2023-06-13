@@ -1,4 +1,100 @@
-<h1>StaticPages#landing_page</h1>
-<p>Find me in app/views/static_pages/landing_page.html.erb</p>
+<div class="container mt-2">
+  <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+    <div class="container-fluid py-5">
+      <h1>What do you want to learn today?</h1>
+      <div class="form-inline my-2 my-lg-0">
+        <%= form_tag(courses_path, method: :get) do %>
+          <div class="input-group">
+            <%= text_field_tag :title, params[:title], autocomplete: 'off', placeholder: "Search", class: 'form-control-sm' %>
+            <span class="input-group-append">
+              <button class="btn btn-primary btn-sm" type="submit">
+                <span aria-hidden="true" class="fa fa-search"></span>
+              </button>
+            </span>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-<%= link_to 'Courses', courses_path, class: 'btn btn-success' %>
+  <div class="card-group">
+
+    <div class="card card-body">
+      <h1><i class="fa fa-graduation-cap"></i></h1>
+      <p>
+        <%= Course.count %>
+        Online courses
+      </p>
+      <div class="row">
+        <p>Explore a variety of fresh topics</p>
+      </div>
+    </div>
+
+    <div class="card card-body">
+      <h1>
+        <i class="fa fa-chalkboard-teacher"></i>
+      </h1>
+      <p>
+        <%= Course.distinct.count(:user_id) %>
+        Expert instructors
+      </p>
+      <div class="row">
+        <p>Find the right instructor for you</p>
+      </div>
+    </div>
+
+    <div class="card card-body">
+      <h1><i class="fa fa-user-graduate"></i></h1>
+      <p>
+        <%= User.count %>
+        Active learners
+      </p>
+      <div class="row">
+        <p>Join the knowledge sharing community</p>
+      </div>
+    </div>
+
+    <div class="card card-body">
+      <h1> <i class="fa fa-infinity"></i></h1>
+      <p>
+        <%= User.count %>
+        Active learners
+      </p>
+      <div class="row">
+        <p>Join the knowledge sharing community</p>
+      </div>
+    </div>
+  
+  </div>
+
+  <div class="row">
+    <hr>
+    <h2>Popular courses</h2>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <% @courses.each do |course|%>
+          <div class="col">
+            <%= render 'courses/course', course: course  %>
+          </div>
+        <% end %>
+      </div>
+    <hr>
+    <h2>Top rated courses</h2>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <% @courses.each do |course|%>
+          <div class="col">
+            <%= render 'courses/course', course: course  %>
+          </div>
+        <% end %>
+      </div>
+    <hr>
+    <h2>Most recent courses</h2>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <% @recent_courses.each do |course|%>
+          <div class="col">
+            <%= render 'courses/course', course: course  %>
+          </div>
+        <% end %>
+      </div>
+    <hr>
+  </div>
+<div>
