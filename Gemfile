@@ -85,3 +85,5 @@ gem "friendly_id", "~> 5.5"
 gem "ransack", "~> 4.0"
 
 gem "public_activity", "~> 2.0"
+
+gem "rolify", "~> 6.0"

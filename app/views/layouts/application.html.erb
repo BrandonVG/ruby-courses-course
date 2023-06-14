@@ -11,11 +11,11 @@
   </head>
   <body>
     <%= render "layouts/navbar"%>
-    <%= render 'layouts/messages' %>
-    <%= yield %>
+    <main class="container-fluid min-vh-100">
+      <%= render 'layouts/messages' %>
+      <%= yield %>
+    </main>
     <br>
-    <div class="bg-dark text white">
-      <%= render 'layouts/footer' %>
-    </div> 
+    <%= render 'layouts/footer' %>
   </body>
 </html>
