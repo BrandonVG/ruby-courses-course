@@ -12,5 +12,14 @@
       <p><%= 'current_sign_in_ip'.humanize %>: <%= user.current_sign_in_ip %></p>
       <p><%= 'last_sign_in_ip'.humanize %>: <%= user.last_sign_in_ip %></p>
     </div>
+    <div class="card-footer">
+      <div class="row justify-content-center">
+        <% user.roles.each do |role| %>
+          <div class="col-3">
+            <p><span class="badge text-bg-info text-white"><%= role.name %></span></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
