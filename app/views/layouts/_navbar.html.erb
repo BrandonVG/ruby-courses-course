@@ -18,10 +18,16 @@
             Courses
           <% end %>
         </li>
-        <li class="<%= 'active font-weight-bold' if current_page?(courses_path) %> nav-item">
+        <li class="<%= 'active font-weight-bold' if current_page?(new_course_path) %> nav-item">
           <%= link_to new_course_path, class: 'nav-link' do %>
             <div class="fa fa-plus"></div>
             New course
+          <% end %>
+        </li>
+        <li class="<%= 'active font-weight-bold' if current_page?(users_path) %> nav-item">
+          <%= link_to users_path, class: 'nav-link' do %>
+            <div class="fa fa-book"></div>
+            Users
           <% end %>
         </li>
       </ul>
