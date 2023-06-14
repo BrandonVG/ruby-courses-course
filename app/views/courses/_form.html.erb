@@ -8,8 +8,8 @@
     <%= f.label :description %>
     <%= f.rich_text_area :description %>
     <%= f.input :short_description %>
-    <%= f.input :language %>
-    <%= f.input :level, collection: ['Beginner', 'Intermediate', 'Advanced'] %>
+    <%= f.input :language collection: Course.languages, include_blank:true %>
+    <%= f.input :level, collection: Course.levels, include_blank:true %>
     <%= f.input :price %>
   </div>
 
