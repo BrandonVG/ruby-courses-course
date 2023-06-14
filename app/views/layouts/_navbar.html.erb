@@ -44,10 +44,10 @@
         <% end %>
       </div>
       <ul class="navbar-nav mr-right">
-        <li class="<%= 'active font-weight-bold' if current_page?(root_path) %> nav-item">
-          <%= link_to root_path, class: 'nav-link' do %>
-            <i class="fa fa-home"></i>
-            Another link
+        <li class="<%= 'active font-weight-bold' if current_page?(activity_path) %> nav-item">
+          <%= link_to activity_path, class: 'nav-link' do %>
+            <div class="fa fa-bell"></div>
+            Activity
           <% end %>
         </li>
         <li class="nav-item dropdown">

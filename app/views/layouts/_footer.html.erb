@@ -1,0 +1,20 @@
+<hr>
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <p> Copyright @ <%= Time.now.year %> CoursePlatform Sp. z o.o.</p>
+        <p><i class="fa fa-envelope"> <%= mail_to 'brandonaz.vadillo@gmail.com' %> </p>
+      </div>
+      <div class="col-md-4">
+        <p>Privacy policy</p>
+        <p>Terms and conditions</p>
+      </div>
+      <div class="col-md-4">
+        <p>About us</p>
+        <%= link_to 'Teach on CoursePlatform', new_course_path %>
+      </div>
+    </div>
+  </div>
+</footer>
+<br>
