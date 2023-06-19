@@ -10,6 +10,9 @@
     <p class="text-center"><%= number_to_currency(course.price)  %></p>
   </div>
   <div class="card-footer">
+    <p><i class="fa fa-book"></i> <%= course.lessons.count %></p>
+  </div>
+  <div class="card-footer">
     <div class="row">
       <div class="col-md-6">
         <p><i class="fa fa-globe-africa"></i> <%= course.language %></p>
