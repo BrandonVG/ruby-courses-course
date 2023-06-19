@@ -1,6 +1,11 @@
 <div class="card">
   <div class="card-header">
     <i class="fa fa-user"></i>
+    <% if user.online? %>
+      <i class="text-success far fa-circle"></i>
+    <% else %>
+      <i class="text-danger far fa-circle"></i>
+    <%end%>
     <%= link_to user.email, user_path(user) %>
   </div>
   <div class="card-footer">
