@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 #User.create!(email: 'admin@admin.com', password:'adminadmin', password_confirmation: 'adminadmin')
+PublicActivity.enabled = false
 30.times do
   Course.create!([{
     title: Faker::Educator.course_name,
@@ -17,3 +18,4 @@
     price: Faker::Number.between(from: 1000, to: 20000)
   }])
 end
+PublicActivity.enabled = true

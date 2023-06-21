@@ -89,3 +89,5 @@ gem "public_activity", "~> 2.0"
 gem "rolify", "~> 6.0"
 
 gem "pundit", "~> 2.3"
+
+gem "pagy", "~> 6.0"
