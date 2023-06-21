@@ -6,7 +6,9 @@ class User < ApplicationRecord
          :trackable
   
   rolify
+  
   has_many :courses
+  has_many :enrollments
 
   extend FriendlyId
   friendly_id :email, use: :slugged

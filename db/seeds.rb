@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-#User.create!(email: 'admin@admin.com', password:'adminadmin', password_confirmation: 'adminadmin')
+User.create!(email: 'admin@admin.com', password:'adminadmin', password_confirmation: 'adminadmin')
 PublicActivity.enabled = false
 30.times do
   Course.create!([{

@@ -9,57 +9,58 @@
   <div class="form-inline">
     <%= search_form_for @q do |f| %>
       <%= f.search_field :email_cont, placeholder: 'email' %>
-      <%= f.search_field :sign_in_count_eq, placeholder: 'sign in count' %>
-      <%= f.search_field :email_or_sign_in_count_eq, placeholder: 'email or sign in count' %>
       <%= f.submit %>
     <%end%>
     <%= link_to users_path, class:'btn btn-sm btn-secondary' do %>
       <i class="fa fa-sync"></i>
     <% end %>
   </div>
-  <table class="table table-bordered mt-2">
-    <thead>
-      <tr>
-        <th>id</th>
-        <th><%= sort_link(@q, :email) %></th>
-        <th>created_at</th>
-        <th><%= 'sign_in_count'.humanize %></th>
-        <th><%= 'current_sign_in_at'.humanize %></th>
-        <th><%= 'last_sign_in_at'.humanize %></th>
-        <th><%= 'current_sign_in_ip'.humanize %></th>
-        <th><%= 'last_sign_in_ip'.humanize %></th>
-        <th>Roles </th>
-      <tr>
-    </thead>
-    <tbody>
-      <% @users.each do |user| %>
+  <br>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped table-sm">
+      <thead>
         <tr>
-          <td><%= user.id %></td>
-          <td>
-            <% if user.online? %>
-              <i class="text-success far fa-circle"></i>
-            <% else %>
-              <i class="text-danger far fa-circle"></i>
-            <% end %>
-            <%= link_to user.email, user_path(user)%>
-          </td>
-          <td><%= user.created_at %></td>
-          <td><%= user.sign_in_count %></td>
-          <td><%= user.current_sign_in_at %></td>
-          <td><%= user.last_sign_in_at %></td>
-          <td><%= user.current_sign_in_ip %></td>
-          <td><%= user.last_sign_in_ip %></td>
-          <td>
-            <% user.roles.each do |role| %>
-              <span class="badge text-bg-info text-white"> <%= role.name %> </span>
-            <% end %>
-            <% if policy(user).edit? %>
-              <%= link_to 'Edit roles', edit_user_path(user), class: 'btn btn-sm btn-warning' %>
-            <% end %>
-          </td>
-        </tr>
-      <%end%>
-    </tbody>
-  </table>
-
+          <th>id</th>
+          <th><%= sort_link(@q, :email) %></th>
+          <th>created_at</th>
+          <th><%= 'sign_in_count'.humanize %></th>
+          <th><%= 'current_sign_in_at'.humanize %></th>
+          <th><%= 'last_sign_in_at'.humanize %></th>
+          <th><%= 'current_sign_in_ip'.humanize %></th>
+          <th><%= 'last_sign_in_ip'.humanize %></th>
+          <th>Roles </th>
+        <tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.id %></td>
+            <td>
+              <% if user.online? %>
+                <i class="text-success far fa-circle"></i>
+              <% else %>
+                <i class="text-danger far fa-circle"></i>
+              <% end %>
+              <%= link_to user.email, user_path(user)%>
+            </td>
+            <td><%= user.created_at %></td>
+            <td><%= user.sign_in_count %></td>
+            <td><%= user.current_sign_in_at %></td>
+            <td><%= user.last_sign_in_at %></td>
+            <td><%= user.current_sign_in_ip %></td>
+            <td><%= user.last_sign_in_ip %></td>
+            <td>
+              <% user.roles.each do |role| %>
+                <span class="badge text-bg-info text-white"> <%= role.name %> </span>
+              <% end %>
+              <% if policy(user).edit? %>
+                <%= link_to 'Edit roles', edit_user_path(user), class: 'btn btn-sm btn-warning' %>
+              <% end %>
+            </td>
+          </tr>
+        <%end%>
+      </tbody>
+    </table>
+  </div>
+  <br>
 </div>

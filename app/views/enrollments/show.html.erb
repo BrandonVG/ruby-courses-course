@@ -1,0 +1,11 @@
+<p style="color: green"><%= notice %></p>
+
+<p><b>Course:</b> <%= @enrollment.course %></p>
+<p><b>User:</b> <%= @enrollment.user %></p>
+<p><b>Rating:</b> <%= @enrollment.rating %></p>
+<p><b>Review:</b> <%= @enrollment.review %></p>
+<p><b>Price:</b> <%= @enrollment.price %></p>
+
+<%= link_to 'Edit', edit_enrollment_path(@enrollment) %>
+|
+<%= link_to 'Back', enrollments_path %>
