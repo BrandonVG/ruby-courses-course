@@ -1,12 +1,10 @@
+<% content_for :title do %>
+  Corsego 
+  |
+  All Users
+<% end %>
 <div class="container">
   <h3>Users <span class="badge text-bg-info"><%= @users.count %></span></h3>
-  <%# <div class="row row-cols-1 row-cols-md-3 g-4 mb-2">
-    <% @users.each do |user| %>
-      <%# <div class="col">
-        <%= render 'users/user', user: user %>
-      <%# </div> %>
-    <%# <% end %> 
-  <%# </div>  %>
 
   <div class="form-inline">
     <%= search_form_for @q do |f| %>
@@ -37,7 +35,14 @@
       <% @users.each do |user| %>
         <tr>
           <td><%= user.id %></td>
-          <td><%= user.email %></td>
+          <td>
+            <% if user.online? %>
+              <i class="text-success far fa-circle"></i>
+            <% else %>
+              <i class="text-danger far fa-circle"></i>
+            <% end %>
+            <%= link_to user.email, user_path(user)%>
+          </td>
           <td><%= user.created_at %></td>
           <td><%= user.sign_in_count %></td>
           <td><%= user.current_sign_in_at %></td>

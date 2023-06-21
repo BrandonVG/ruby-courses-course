@@ -1,3 +1,10 @@
+<% content_for :title do %>
+  Corsego 
+  /
+  Courses <%= @course.title %>
+  /
+  Editing lesson <%= @lesson.title %>
+<% end %>
 <div class="container">
   <%= link_to "Courses", courses_path %>
   /
