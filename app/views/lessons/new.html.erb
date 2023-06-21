@@ -1,11 +1,13 @@
 <div class="container">
-  <h1>New lesson</h1>
-
-  <%= render "form", lesson: @lesson %>
-
-  <br>
-
-  <div>
-    <%= link_to 'Back', course_path(@course) %>
+  <div class="card">
+    <div class="card-header">
+      <h1>New lesson</h1>
+    </div>
+    <div class="card-body">
+      <%= render 'form' %>
+    </div>
+    <div class="card-footer">
+      <%= link_to 'Back to course', course_path(@course) %>
+    </div>
   </div>
 </div>

@@ -5,8 +5,10 @@
     </div>
     <div class="card-body">
       <%= render "form", course: @course %>
-      <%= link_to "Back to courses", courses_path %>
+    </div>
+    <div class="card-footer">
       <%= link_to "Show this course", @course %> |
+      <%= link_to "Back to courses", courses_path %>
     </div>
   </div>
 </div>
