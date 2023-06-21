@@ -1,7 +1,11 @@
 <div class="container">
+    <%= link_to "Courses", courses_path %>
+  /
+  <%= link_to @course.title, course_path(@course) %>
+  / new lesson
   <div class="card">
     <div class="card-header">
-      <h1>New lesson</h1>
+      <h3><i class=" far fa-check-square"></i> New lesson</h3>
     </div>
     <div class="card-body">
       <%= render 'form' %>

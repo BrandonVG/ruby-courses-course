@@ -1,11 +1,10 @@
 <div id="<%= dom_id lesson %>" class="card mb-2">
   <div class="card-header">
-    <%= link_to lesson.title, course_lesson_path(@course, lesson) %>
+    <p><i class="far fa-check-square"></i> <%= link_to lesson.title, course_lesson_path(@course, lesson) %></p>
   </div>
   <% if policy(lesson).show? %>
     <div class="card-body">
       <%= lesson.content %>
-      <p> <%= lesson.course %> </p>
     </div>
   <% end %>
   <% if policy(lesson).edit? %>

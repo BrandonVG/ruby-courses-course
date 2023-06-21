@@ -1,12 +1,12 @@
 <div class="container">
   <h3>Users <span class="badge text-bg-info"><%= @users.count %></span></h3>
-  <div class="row row-cols-1 row-cols-md-3 g-4 mb-2">
+  <%# <div class="row row-cols-1 row-cols-md-3 g-4 mb-2">
     <% @users.each do |user| %>
-      <div class="col">
+      <%# <div class="col">
         <%= render 'users/user', user: user %>
-      </div>
-    <% end %>
-  </div>
+      <%# </div> %>
+    <%# <% end %> 
+  <%# </div>  %>
 
   <div class="form-inline">
     <%= search_form_for @q do |f| %>
@@ -30,6 +30,7 @@
         <th><%= 'last_sign_in_at'.humanize %></th>
         <th><%= 'current_sign_in_ip'.humanize %></th>
         <th><%= 'last_sign_in_ip'.humanize %></th>
+        <th>Roles </th>
       <tr>
     </thead>
     <tbody>
@@ -43,6 +44,14 @@
           <td><%= user.last_sign_in_at %></td>
           <td><%= user.current_sign_in_ip %></td>
           <td><%= user.last_sign_in_ip %></td>
+          <td>
+            <% user.roles.each do |role| %>
+              <span class="badge text-bg-info text-white"> <%= role.name %> </span>
+            <% end %>
+            <% if policy(user).edit? %>
+              <%= link_to 'Edit roles', edit_user_path(user), class: 'btn btn-sm btn-warning' %>
+            <% end %>
+          </td>
         </tr>
       <%end%>
     </tbody>
