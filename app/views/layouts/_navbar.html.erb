@@ -30,6 +30,12 @@
             Users
           <% end %>
         </li>
+        <li class="<%= 'active font-weight-bold' if current_page?(enrollments_path) %> nav-item">
+          <%= link_to enrollments_path, class: 'nav-link' do %>
+            <div class="fa fa-lock-open"></div>
+            Enrollments
+          <% end %>
+        </li>
       </ul>
       <div class="form-inline my-2 my-lg-0">
         <%= search_form_for @ransack_courses, as: :courses_search, url: courses_path do |f| %>

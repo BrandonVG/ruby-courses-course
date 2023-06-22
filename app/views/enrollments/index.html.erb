@@ -31,7 +31,7 @@
             <td> <%= number_to_currency(enrollment.price) %> </td>
             <td> <%= link_to 'Show', enrollment %> </td>
             <td> <%= link_to 'Edit', edit_enrollment_path(enrollment) %> </td>
-            <td> <%= link_to 'Destroy', enrollment, method: :delete, data: { confirm: 'Are you sure?' } %> </td>
+            <td> <%= button_to 'Destroy', enrollment, method: :delete, form: {data: {turbo_confirm: 'Are you sure?'}}, class: 'btn btn-danger' %> </td>
           </tr>
         <% end %>
       </tbody>
