@@ -11,11 +11,14 @@
     <table class="table table-bordered table-striped table-sm">
       <thead>
         <tr>
-          <th>Course</th>
-          <th>User</th>
-          <th>Rating</th>
-          <th>Preview</th>
-          <th>Price</th>
+          <th>ID</th>
+          <th><p class="fa fa-user">User</p></th>
+          <th><p class="fa fa-clock fa-lock-open">bought</th>
+          <th><p class="fa fa-clock fa-lock-open">Course</th>
+          <th><p class="fa fa-clock fa-lock-open">Price</th>
+          <th><p class="fa fa-clock fa-lock-open">Reviewed on</th>
+          <th><p class="fa fa-clock fa-lock-open">Rating</th>
+          <th><p class="fa fa-clock fa-lock-open">Review</th>
           <th></th>
           <th></th>
           <th></th>
@@ -24,14 +27,21 @@
       <tbody>
         <% @enrollments.each do |enrollment| %>
           <tr>
-            <td> <%= enrollment.course %> </td>
-            <td> <%= enrollment.user %> </td>
+            <td> <%= enrollment.id %> </td>
+            <td> <%= link_to enrollment.user, user_path(enrollment.user) %> </td>
+            <td> <%= enrollment.created_at.strftime("%d/%b/%Y, %H:%M") %> </td>
+            <td> <%= link_to enrollment.course, course_path(enrollment.course) %> </td>
+            <td> <%= number_to_currency(enrollment.price) %> </td>
+            <td> 
+              <% if enrollment.rating.present? %>
+                <%= enrollment.updated_at.strftime("%d/%b/%Y, %H:%M") %>
+              <% end %>
+            </td>
             <td> <%= enrollment.rating %> </td>
             <td> <%= enrollment.review %> </td>
-            <td> <%= number_to_currency(enrollment.price) %> </td>
-            <td> <%= link_to 'Show', enrollment %> </td>
-            <td> <%= link_to 'Edit', edit_enrollment_path(enrollment) %> </td>
-            <td> <%= button_to 'Destroy', enrollment, method: :delete, form: {data: {turbo_confirm: 'Are you sure?'}}, class: 'btn btn-danger' %> </td>
+            <td> <%= link_to 'See Review', enrollment %> </td>
+            <td> <%= link_to 'Add Review', edit_enrollment_path(enrollment) %> </td>
+            <td> <%= button_to 'Delete enrollment', enrollment, method: :delete, form: {data: {turbo_confirm: 'Are you sure?'}}, class: 'btn btn-danger' %> </td>
           </tr>
         <% end %>
       </tbody>

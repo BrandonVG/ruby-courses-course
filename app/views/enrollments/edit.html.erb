@@ -8,14 +8,14 @@
 <div class="container">
   <div class="card">
     <div class="card-header">
-      <h3><i class="fa fa-lock-open"></i> Editing enrollment</h3>
+      <h3 class="text-warning fa fa-star"> Add a review</h3>
     </div>
     <div class="card-body">
       <%= render 'form' %>
     </div>
     <div class="card-footer">
-      <%= link_to 'Show', @enrollment %>
-      <%= link_to 'Back', enrollments_path %>
+      <%= link_to 'Show Review', @enrollment %>
+      <%= link_to 'Back to course', course_path(@enrollment.course) %>
     </div>
   </div>
 </div>
