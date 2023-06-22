@@ -4,6 +4,7 @@ class CoursesController < ApplicationController
   # GET /courses or /courses.json
   def index
     @ransack_courses = Course.ransack(params[:courses_search], search_key: :courses_search)
+    @ransack_courses.sorts = ['created_at desc', 'edited_at desc'] if @ransack_courses.sorts.empty?
     @pagy, @courses = pagy(@ransack_courses.result.includes(:user))
   end
 
