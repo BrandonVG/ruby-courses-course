@@ -7,17 +7,27 @@
 <div class="container">
   <h3 class="text-center">Enrollments <span class="badge text-bg-info text-white" ><%= @enrollments.count %></span></h3>
 
+  <%= search_form_for @q do |f| %>
+    <%= f.search_field :user_email_cont, placeholder: 'user email' %>
+    <%= f.search_field :course_title_cont, placeholder: 'course title' %>
+    <%= f.search_field :price_eq, placeholder: 'price' %>
+    <%= f.search_field :rating_eq, placeholder: 'rating' %>
+    <%= f.search_field :review_cont, placeholder: 'review' %>
+    <%= f.submit %>
+  <% end %>
+  <%= link_to 'refresh', enrollments_path %>
+
   <div class="table-responsive">
     <table class="table table-bordered table-striped table-sm">
       <thead>
         <tr>
           <th>ID</th>
-          <th><i class="fa fa-user"></i> User</th>
-          <th><i class="fa fa-clock"></i> <i class="fa fa-lock-open"></i> bought</th>
-          <th><i class="fa fa-graduation-cap"></i> Course</th>
-          <th><i class="fa fa-dollar-sign"></i> Price</th>
-          <th><i class="fa fa-clock text-warning"></i> Reviewed on</th>
-          <th><i class="fa fa-star text-warning"></i> Rating</th>
+          <th><i class="fa fa-user"></i> <%= sort_link(@q, :user_email) %></th>
+          <th><i class="fa fa-clock"></i> <i class="fa fa-lock-open"></i> <%= sort_link(@q, :created_at) %></th>
+          <th><i class="fa fa-graduation-cap"></i> <%= sort_link(@q, :course_title) %></th>
+          <th><i class="fa fa-dollar-sign"></i> <%= sort_link(@q, :price) %> </th>
+          <th><i class="fa fa-clock text-warning"></i> <%= sort_link(@q, :updated_at) %> Reviewed on </th>
+          <th><i class="fa fa-star text-warning"></i> <%= sort_link(@q,:rating) %> Rating</th>
           <th><i class="fa fa-comment text-warning"></i> Review</th>
           <th></th>
           <th></th>
