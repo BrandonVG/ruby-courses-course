@@ -54,7 +54,8 @@
                 <span class="badge text-bg-info text-white"> <%= role.name %> </span>
               <% end %>
               <% if policy(user).edit? %>
-                <%= link_to 'Edit roles', edit_user_path(user), class: 'btn btn-sm btn-warning' %>
+                <br>
+                <%= link_to 'Edit roles', edit_user_path(user), class: 'btn btn-sm btn-warning mt-2' %>
               <% end %>
             </td>
           </tr>
