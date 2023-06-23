@@ -18,6 +18,10 @@
       <p><%= 'last_sign_in_ip'.humanize %>: <%= user.last_sign_in_ip %></p>
     </div>
     <div class="card-footer">
+      <p>Courses created: <%= user.courses_count %></p>
+      <p>Enrollments: <%= user.enrollmnets_count %></p>
+    </div>
+    <div class="card-footer">
       <div class="row justify-content-center">
         <% user.roles.each do |role| %>
           <div class="col-3">

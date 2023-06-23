@@ -28,6 +28,8 @@
           <th><%= 'last_sign_in_at'.humanize %></th>
           <th><%= 'current_sign_in_ip'.humanize %></th>
           <th><%= 'last_sign_in_ip'.humanize %></th>
+          <th><%= 'courses_count'.humanize %></th>
+          <th><%= 'enrollments_count'.humanize %></th>
           <th>Roles </th>
         <tr>
       </thead>
@@ -49,6 +51,8 @@
             <td><%= user.last_sign_in_at %></td>
             <td><%= user.current_sign_in_ip %></td>
             <td><%= user.last_sign_in_ip %></td>
+            <td><%= user.courses_count %></td>
+            <td><%= user.enrollments_count %></td>
             <td>
               <% user.roles.each do |role| %>
                 <span class="badge text-bg-info text-white"> <%= role.name %> </span>
