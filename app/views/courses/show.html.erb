@@ -6,7 +6,7 @@
 <div class="container mt-5">
   <%= link_to "Courses", courses_path %>
   /
-  <%= link_to @course.title, courses_path(@course) %>
+  <%= link_to @course.title, course_path(@course) %>
   <div class="row">
     <div class="col-lg-6">
       <%= render 'courses/course', course: @course %>
