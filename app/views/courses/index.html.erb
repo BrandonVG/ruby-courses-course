@@ -1,11 +1,12 @@
 <% content_for :title do %>
   Corsego 
   |
-  All courses
+  <%= action_name.humanize %>
+  courses
 <% end %>
 
 <div class="container">
-  <h3 class="text-center">Courses <span class="badge text-bg-info"> <%= @courses.size %></span> </h3>
+  <h3 class="text-center"><%= action_name.humanize %> courses <span class="badge text-bg-info"> <%= @courses.size %></span> </h3>
   <div class="row">
     <div class="col-md-2">
       <%= search_form_for @ransack_courses, as: :courses_search, url: @ransack_path do |f| %>
