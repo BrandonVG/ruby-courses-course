@@ -41,7 +41,14 @@
               <div class="fa fa-graduation-cap"></div>
               Learn
             </button>
-            <div aria-labelledby="studentDropdown" class="dropdown-menu dropdown-menu-right"></div>
+            <div aria-labelledby="studentDropdown" class="dropdown-menu dropdown-menu-right">
+              <%= link_to purchased_courses_path, class: "dropdown-item" do %>
+                <p><i class="fa fa-graduation-cap"></i> Purchased Courses</p>
+              <%end%>
+              <%= link_to pending_review_courses_path, class: "dropdown-item" do %>
+                <p><i class="fa fa-star"></i> Pending Review </p>
+              <%end%>
+            </div>
           </li>
         <% end %>
         <% if current_user.has_role?(:teacher) %>
@@ -52,9 +59,10 @@
             </button>
             <div aria-labelledby="teacherDropdown" class="dropdown-menu dropdown-menu-right">
               <%= link_to new_course_path, class: "dropdown-item" do %>
-                <div class="fa fa-plus"></div>
-                <div class="fa fa-graduation-cap"></div>
-                New Course
+                <p><i class="fa fa-plus"></i> New Course</p>
+              <% end %>
+              <%= link_to my_students_enrollments_path, class: "dropdown-item" do %>
+                <p><i class="fa fa-user"></i> My students</p>
               <% end %>
             </div>
           </li>

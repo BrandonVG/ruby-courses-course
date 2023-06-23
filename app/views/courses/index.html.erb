@@ -8,7 +8,7 @@
   <h3 class="text-center">Courses <span class="badge text-bg-info"> <%= @courses.size %></span> </h3>
   <div class="row">
     <div class="col-md-2">
-      <%= search_form_for @ransack_courses, as: :courses_search, url: courses_path do |f| %>
+      <%= search_form_for @ransack_courses, as: :courses_search, url: @ransack_path do |f| %>
         <%= f.label :title %>
         <%= f.search_field :title_cont, placeholder:'Title', class: 'form-control form-control-sm' %>
         <%= f.label :description %>
@@ -24,9 +24,7 @@
         <%= f.submit %>
       <%end%>
 
-      <%= link_to courses_path, class:'btn btn-sm btn-secondary' do %>
-        <i class="fa fa-sync"></i>
-      <% end %>
+      <%= link_to 'refresh', @ransack_path %>
     </div>
 
     <div class="col-md-10">
