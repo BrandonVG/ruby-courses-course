@@ -11,6 +11,9 @@
     <p class="text-center"> <%= review_button(course) %> </p>
   </div>
   <div class="card-footer">
+    <p class="text-warning"><i class="fa fa-star"></i><b> <%= course.average_rating %></b></p>
+  </div>
+  <div class="card-footer">
     <p><i class="fa fa-tasks"></i> <%= course.lessons.count %></p>
   </div>
   <div class="card-footer">
