@@ -37,7 +37,9 @@
       </h4>
       <ul class="list-group">
         <% @lessons.each do |lesson| %>
-          <%= render 'lessons/lesson_preview', lesson: lesson %>
+          <li class="list-group-item">
+            <%= render 'lessons/lesson_preview', lesson: lesson %>
+          </li>
         <% end %>
       </ul>
       <p></p>

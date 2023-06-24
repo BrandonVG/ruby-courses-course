@@ -11,6 +11,35 @@
 /
 <%= link_to @lesson.title, course_lesson_path(@course, @lesson) %>
 <br>
-<%= render 'lessons/lesson', lesson: @lesson %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8">
+      <%= render 'lessons/lesson', lesson: @lesson %>
+    </div>
+    <div class="col-lg-4">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <%= link_to course_path(@lesson.course) do %>
+            <p><i class="fa fa-graduation-cap"></i>
+            <%= @lesson.course.title %></p>
+            <p><i class="fa fa-spinner"></i> <%= number_to_percentage(@course.progress(current_user), precision: 0) %> </p>
+          <% end %>
+        </li>
+        <% @lessons.each do |lesson| %>
+          <% if @lesson.present? && lesson == @lesson%>
+            <li class="list-group-item list-group-item-success">
+              <%= render 'lessons/lesson_preview', lesson: lesson %>
+            </li>
+          <% else %>
+            <li class="list-group-item">
+              <%= render 'lessons/lesson_preview', lesson: lesson %>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
 
 <%= link_to 'Back to course', course_path(@lesson.course) %>

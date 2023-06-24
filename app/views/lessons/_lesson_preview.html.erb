@@ -1,17 +1,15 @@
-<li class="list-group-item">
-  <p>
-    <% if lesson.viewed(current_user) == true %>
-      <i class=" text-success far fa-check-square"></i>
-    <% else %>
-      <i class=" text-danger far fa-check-square"></i>
-    <%end%>
-    <%= link_to lesson.title, course_lesson_path(@course, lesson) %>
-  <p>
+<p>
+  <% if lesson.viewed(current_user) == true %>
+    <i class=" text-success far fa-check-square"></i>
+  <% else %>
+    <i class=" text-danger far fa-check-square"></i>
+  <%end%>
+  <%= link_to lesson.title, course_lesson_path(@course, lesson) %>
+<p>
 
-  <p class="float-right">
-    <% if policy(lesson).edit? %>
-      <%= link_to 'Edit', edit_course_lesson_path(@course, lesson), class: 'btn btn-sm btn-warning' %>
-      <%= link_to 'Destroy', [@course, lesson], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
-    <% end %>
-  </p>
-</li>
+<p class="float-right">
+  <% if policy(lesson).edit? %>
+    <%= link_to 'Edit', edit_course_lesson_path(@course, lesson), class: 'btn btn-sm btn-warning' %>
+    <%= link_to 'Destroy', [@course, lesson], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+  <% end %>
+</p>
