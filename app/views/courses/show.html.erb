@@ -29,8 +29,7 @@
       </div>
       <h4>
         <i class="fa fa-tasks"></i>
-        Lessons:
-        <%= @course.lessons_count %>
+        <%= pluralize(@course.lessons_count, 'lesson') %>
         <p class="float-right">
           <i class="fa fa-spinner"></i>
           <%= number_to_percentage(@course.progress(current_user), precision: 0) %>
@@ -44,8 +43,7 @@
       <p></p>
       <h4>
         <div class="fa fa-comment"></div>
-        Reviews:
-        <%= @enrollments_with_review.count %>
+        <%= pluralize(@enrollments_with_review.count, 'review') %>
       </h4>
       <% @enrollments_with_review.each do |enrollment| %>
         <%= render 'enrollments/enrollment', enrollment: enrollment %>
