@@ -77,6 +77,9 @@
               Admin
             </button>
             <div aria-labelledby="adminDropdown" class="dropdown-menu dropdown-menu-right">
+              <%= link_to unapproved_courses_path, class: "dropdown-item" do %>
+                <p><i class="fa fa-graduation-cap"></i>Unapproved courses <span class="badge text-bg-danger"> <%= Course.unapproved.count %> </span></p>
+              <% end %>
               <%= link_to users_path, class: "dropdown-item" do %>
                 <p><i class="fa fa-users"></i>Users <span class="badge text-bg-danger"> <%= User.count %> </span></p>
               <% end %>
