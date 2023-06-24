@@ -1,4 +1,5 @@
 class ChartsController < ApplicationController
+  before_action :admin_authorize_json
 
   def users_per_day
     render json: User.group_by_day(:created_at).count

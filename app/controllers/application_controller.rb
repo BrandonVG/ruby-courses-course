@@ -26,4 +26,8 @@ class ApplicationController < ActionController::Base
     flash[:alert] = "You are not authorized to perform this action."
     redirect_to(request.referrer || root_path)
   end
+
+  def admin_authorize_json
+    render json: {'error': '403', 'Message': 'Unauthorized'} unless current_user.has_role?(:admin)
+  end
 end
