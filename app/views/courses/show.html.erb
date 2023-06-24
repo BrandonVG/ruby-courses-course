@@ -1,9 +1,15 @@
 <% content_for :title do %>
   Corsego 
-  /
+  |
   <%= @course.title %>
 <% end %>
 <div class="container mt-5">
+  <%= link_to 'Courses', courses_path %>
+  |
+  <%= link_to course_path(@course) do %>
+    <i class="fa fa-graduation-cap"></i>
+    <%= @course.title %>
+  <% end %>
   <div class="row">
     <div class="col-lg-8 order-1 order-lg-1">
       <div class="p-5 mb-4 bg-body-tertiary rounded-3">

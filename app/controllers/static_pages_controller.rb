@@ -2,9 +2,9 @@ class StaticPagesController < ApplicationController
   skip_before_action :authenticate_user!, :only => [:landing_page]
   def landing_page
     @latest_good_reviews = Enrollment.reviewed.latest_good_reviews
-    @latest = Course.latest
-    @top_rated = Course.top_rated
-    @popular = Course.popular
+    @latest = Course.latest.published.approved
+    @top_rated = Course.top_rated.published.approved
+    @popular = Course.popular.published.approved
     @purchased_courses = Course.purchased(current_user)
   end
 
