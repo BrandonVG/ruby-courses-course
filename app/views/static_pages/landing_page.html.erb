@@ -67,40 +67,57 @@
         Active learners
       </p>
       <div class="row">
-        <p>Join the knowledge sharing community</p>
+        <p>Lifetime access</p>
+        <p> Learn on your Schedule <p>
       </div>
     </div>
-  
   </div>
 
   <div class="row">
+    <h2> <i class="fa fa-user-graduate"></i> Continue Learning</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4 mb-2">
+      <% @purchased_courses.each do |course|%>
+        <div class="col">
+          <%= render 'courses/course', course: course %>
+        </div>
+      <% end %>
+    </div>
     <hr>
-    <h2>Popular courses</h2>
-      <div class="row row-cols-1 row-cols-md-3 g-4">
-        <% @courses.each do |course|%>
-          <div class="col">
-            <%= render 'courses/course', course: course  %>
-          </div>
-        <% end %>
-      </div>
+    <h2><i class="fa fa-chart-line"></i> Popular courses</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4 mb-2">
+      <% @popular_courses.each do |course|%>
+        <div class="col">
+          <%= render 'courses/course', course: course %>
+        </div>
+      <% end %>
+    </div>
     <hr>
-    <h2>Top rated courses</h2>
-      <div class="row row-cols-1 row-cols-md-3 g-4">
-        <% @courses.each do |course|%>
-          <div class="col">
-            <%= render 'courses/course', course: course  %>
-          </div>
-        <% end %>
-      </div>
+    <h2><i class="fa fa-star"></i> Top rated courses</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4 mb-2">
+      <% @top_rated_courses.each do |course|%>
+        <div class="col">
+          <%= render 'courses/course', course: course %>
+        </div>
+      <% end %>
+    </div>
     <hr>
-    <h2>Most recent courses</h2>
-      <div class="row row-cols-1 row-cols-md-3 g-4">
-        <% @recent_courses.each do |course|%>
-          <div class="col">
-            <%= render 'courses/course', course: course  %>
-          </div>
-        <% end %>
-      </div>
+    <h2><i class="fa fa-clock"></i> Latest courses</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4 mb-2">
+      <% @latest_couses.each do |course|%>
+        <div class="col">
+          <%= render 'courses/course', course: course %>
+        </div>
+      <% end %>
+    </div>
+    <hr>
+    <h2><i class="fa fa-comment"></i> What our students have to say</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4 mb-2">
+      <% @latest_good_reviews.each do |enrollment|%>
+        <div class="col">
+          <%= render 'enrollments/enrollment', enrollment: enrollment %>
+        </div>
+      <% end %>
+    </div>
     <hr>
   </div>
 <div>
