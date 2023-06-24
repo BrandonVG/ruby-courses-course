@@ -6,7 +6,7 @@ class Course < ApplicationRecord
   #User.find_each { |user| User.reset_counters(user.id, :courses) }  
   has_rich_text :description
   has_many :lessons, dependent: :destroy
-  has_many :enrollments
+  has_many :enrollments, dependent: :restrict_with_error
   has_many :user_lessons, through: :lessons
 
   scope :latest, -> { limit(3).order(created_at: :desc) }
