@@ -8,6 +8,11 @@ class Course < ApplicationRecord
   has_many :lessons, dependent: :destroy
   has_many :enrollments
 
+  scope :latest, -> { limit(3).order(created_at: :desc) }
+  scope :top_rated, -> { limit(3).order(average_rating: :desc, created_at: :desc) }
+  scope :popular, -> { limit(3).order(enrollments_count: :desc, created_at: :desc) }
+  scope :purchased, ->(user) {limit(3).order(created_at: :desc).joins(:enrollments).where(enrollments: {user: user})}
+
   def to_s
     title
   end

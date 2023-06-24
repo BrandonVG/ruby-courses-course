@@ -85,7 +85,7 @@
     <hr>
     <h2><i class="fa fa-chart-line"></i> Popular courses</h2>
     <div class="row row-cols-1 row-cols-md-3 g-4 mb-2">
-      <% @popular_courses.each do |course|%>
+      <% @popular.each do |course|%>
         <div class="col">
           <%= render 'courses/course', course: course %>
         </div>
@@ -94,7 +94,7 @@
     <hr>
     <h2><i class="fa fa-star"></i> Top rated courses</h2>
     <div class="row row-cols-1 row-cols-md-3 g-4 mb-2">
-      <% @top_rated_courses.each do |course|%>
+      <% @top_rated.each do |course|%>
         <div class="col">
           <%= render 'courses/course', course: course %>
         </div>
@@ -103,7 +103,7 @@
     <hr>
     <h2><i class="fa fa-clock"></i> Latest courses</h2>
     <div class="row row-cols-1 row-cols-md-3 g-4 mb-2">
-      <% @latest_couses.each do |course|%>
+      <% @latest.each do |course|%>
         <div class="col">
           <%= render 'courses/course', course: course %>
         </div>
