@@ -23,13 +23,14 @@
       <thead>
         <tr>
           <th>ID</th>
-          <th><i class="fa fa-user"></i> <%= sort_link(@q, :user_email) %></th>
+          <th><i class="fa fa-user"></i> <%= sort_link(@q, :user_email, 'User') %></th>
           <th><i class="fa fa-clock"></i> <i class="fa fa-lock-open"></i> <%= sort_link(@q, :created_at) %></th>
-          <th><i class="fa fa-graduation-cap"></i> <%= sort_link(@q, :course_title) %></th>
+          <th><i class="fa fa-graduation-cap"></i> <%= sort_link(@q, :course_title,'Course') %></th>
           <th><i class="fa fa-dollar-sign"></i> <%= sort_link(@q, :price) %> </th>
           <th><i class="fa fa-clock text-warning"></i> <%= sort_link(@q, :updated_at) %> Reviewed on </th>
           <th><i class="fa fa-star text-warning"></i> <%= sort_link(@q,:rating) %></th>
           <th><i class="fa fa-comment text-warning"></i> Review</th>
+          <th>Progress</th>
           <th></th>
           <th></th>
           <th></th>
@@ -50,9 +51,18 @@
             </td>
             <td> <%= enrollment.rating %> </td>
             <td> <%= enrollment.review %> </td>
+            <td> <%= number_to_percentage(enrollment.course.progress(enrollment.user), precision: 0) %> </td>
             <td> <%= link_to 'See Review', enrollment %> </td>
-            <td> <%= link_to 'Add Review', edit_enrollment_path(enrollment) %> </td>
-            <td> <%= button_to 'Delete enrollment', enrollment, method: :delete, form: {data: {turbo_confirm: 'Are you sure?'}}, class: 'btn btn-danger' %> </td>
+            <td>
+              <% if policy(enrollment).edit? %>
+                <%= link_to 'Add Review', edit_enrollment_path(enrollment) %>
+              <% end %>
+            </td>
+            <td>
+              <% if policy(enrollment).destroy? %>
+                <%= link_to 'Delete Enrollment', enrollment, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%end%>
+            </td>
           </tr>
         <% end %>
       </tbody>

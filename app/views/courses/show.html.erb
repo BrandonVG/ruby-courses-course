@@ -4,20 +4,59 @@
   <%= @course.title %>
 <% end %>
 <div class="container mt-5">
-  <%= link_to "Courses", courses_path %>
-  /
-  <%= link_to @course.title, course_path(@course) %>
   <div class="row">
-    <div class="col-lg-6">
-      <%= render 'courses/course', course: @course %>
+    <div class="col-lg-8 order-1 order-lg-1">
+      <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+        <h3>
+          <i class="fa fa-graduation-cap"></i>
+          <%= @course.title %>
+        </h3>
+        <p>
+          <i class="fa fa-clock"></i>
+          <%= @course.updated_at.strftime("%m/%Y") %>
+        </p>
+        <p>
+          <i class="fa fa-globe-africa"></i>
+          <%= @course.language %>
+        </p>
+        <p>
+          <i class="fa fa-signal"></i>
+          <%= @course.level %>
+        </p>
+        <p>
+          <%= @course.description %>
+        </p>
+      </div>
+      <h4>
+        <i class="fa fa-tasks"></i>
+        Lessons:
+        <%= @course.lessons_count %>
+        <p class="float-right">
+          <i class="fa fa-spinner"></i>
+          <%= number_to_percentage(@course.progress(current_user), precision: 0) %>
+        </p>
+      </h4>
+      <ul class="list-group">
+        <% @lessons.each do |lesson| %>
+          <%= render 'lessons/lesson_preview', lesson: lesson %>
+        <% end %>
+      </ul>
+      <p></p>
+      <h4>
+        <div class="fa fa-comment"></div>
+        Reviews:
+        <%= @enrollments_with_review.count %>
+      </h4>
+      <% @enrollments_with_review.each do |enrollment| %>
+        <%= render 'enrollments/enrollment', enrollment: enrollment %>
+        <p></p>
+      <% end %>
     </div>
-    <div class="col-lg-6">
-      <% if policy(@course).owner?%>
-        <%= link_to 'Add lesson', new_course_lesson_path(@course, @lesson), class: 'btn btn-primary btn-sm btn-block mb-2' %>
-      <% end %>
-      <% @lessons.each do |lesson| %>
-        <%= render 'lessons/lesson', lesson: lesson %>
-      <% end %>
+    <div class="col-lg-4 order-0 order-lg-1">
+      <div class="sticky-top">
+        <%= render 'courses/course', course: @course %>
+      </div>
+      <p></p>
     </div>
   </div>
 </div>
