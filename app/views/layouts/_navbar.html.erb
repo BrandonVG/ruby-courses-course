@@ -84,7 +84,10 @@
                 <p><i class="fa fa-lock-open"></i> Enrollments <span class="badge text-bg-danger"> <%= Enrollment.count %> </span> </p>
               <% end %>
               <%= link_to activity_path, class: "dropdown-item" do %>
-                <i class="fa fa-bell"></i> Activity </p>
+                <p><i class="fa fa-bell"></i> Activity </p>
+              <% end %>
+              <%= link_to analytics_path, class: "dropdown-item" do %>
+                <p><i class="fa fa-chart-line"></i> Analytics </p>
               <% end %>
             </div>
           </li>

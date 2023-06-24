@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row">
+    <h4 class="text-center">Users created per day</h4>
+    <%= line_chart @users.group_by_day(:created_at).count %> 
+    <h4 class="text-center">Enrollments created per day </h4>
+    <%= column_chart @enrollments.group_by_day(:created_at).count %>
+    <h4 class="text-center" >Course popularity</h4>
+    <%= bar_chart @enrollments.joins(:course).group(:'courses.title').count %>
+  </div>
+</div>

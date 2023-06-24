@@ -91,3 +91,7 @@ gem "rolify", "~> 6.0"
 gem "pundit", "~> 2.3"
 
 gem "pagy", "~> 6.0"
+
+gem "chartkick", "~> 5.0"
+
+gem "groupdate", "~> 6.2"
