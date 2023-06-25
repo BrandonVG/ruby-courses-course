@@ -8,6 +8,7 @@ import "@rails/actiontext"
 import "chartkick/chart.js"
 import './add_jquery'
 import "jquery-ui-dist/jquery-ui"
+import "./trix-editor-overrides"
 
 
 $(document).on('turbo:load', function(){

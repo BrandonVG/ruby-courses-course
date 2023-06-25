@@ -36,7 +36,7 @@
         <%= link_to 'Add lesson', new_course_lesson_path(course, @lesson), class: 'btn btn-primary btn-sm' %>
         <%= link_to 'Edit', edit_course_path(course), class: 'btn btn-sm btn-warning' %>
         <% if policy(course).destroy? %>
-          <%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+          <%= button_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
         <% end %>
         <%= link_to analytics_course_path(course), class: 'btn btn-sm btn-info' do %>
           <i class="fa fa-chart-bar"></i>
