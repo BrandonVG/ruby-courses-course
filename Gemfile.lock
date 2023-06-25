@@ -280,7 +280,7 @@ DEPENDENCIES
   faker (~> 3.2)
   friendly_id (~> 5.5)
   groupdate (~> 6.2)
-  image_processing (~> 1.2)
+  image_processing
   jbuilder
   jsbundling-rails
   pagy (~> 6.0)

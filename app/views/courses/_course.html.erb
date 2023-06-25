@@ -4,7 +4,9 @@
   </div>
   <% if course.avatar.attached? %>
     <div class="card-img-top">
-      <%= image_tag course.avatar, height: "200px", width: "100%" %>
+      <%= link_to course_path(course) do %>
+        <%= image_tag course.avatar, height: "200px", width: "100%" %>
+      <% end %>
     </div>
   <% end %>
   <div class="card-body">
