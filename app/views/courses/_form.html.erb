@@ -5,7 +5,6 @@
 
   <div class="form-inputs">
     <%= f.input :title %>
-    <%= f.label :avatar %>
     <div class="row">
       <% if @course.avatar.attached? %>
         <%= image_tag @course.avatar, width: "200px" %>
@@ -15,9 +14,8 @@
       </div>
     </div>
     <div class="row">
-      <%= f.file_field :avatar  %>
+      <%= f.input :avatar  %>
     </div>
-    <small><%= f.error :avatar, class: 'text-danger' %></small>
     <%= f.label :description %>
     <%= f.rich_text_area :description %>
     <small><%= f.error :description, class: 'text-danger' %></small>
