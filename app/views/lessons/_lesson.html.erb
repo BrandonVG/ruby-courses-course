@@ -6,7 +6,10 @@
     <% else %>
       <i class="text-danger far fa-check-square"></i>
     <% end %>
-    <%= link_to lesson.title, course_lesson_path(@course, lesson) %>
+    <%= link_to course_lesson_path(@course, lesson) do %>
+      <b> <%= lesson.row_order_rank + 1 %> </b>
+      <%= lesson.title %>
+    <% end %>
     </p>
   </div>
   <% if policy(lesson).show? %>
@@ -20,4 +23,22 @@
       <%= link_to 'Destroy', [@course, lesson], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
     </div>
   <% end %>
+  <div class="card-footer">
+    <% unless lesson.prev.nil? %>
+      <div class="float-start">
+        <%= link_to course_lesson_path(@course, lesson.prev), class: 'btn btn-sm btn-info' do %>
+          <i class="fa fa-arrow-left"></i>
+          Previous
+        <% end %>
+      </div>
+    <% end %>
+    <% unless lesson.next.nil? %>
+      <div class="float-end">
+        <%= link_to course_lesson_path(@course, lesson.next), class: 'btn btn-sm btn-info' do %>
+          <i class="fa fa-arrow-right"></i>
+          Next
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>

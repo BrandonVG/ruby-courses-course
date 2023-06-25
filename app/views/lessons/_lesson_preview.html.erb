@@ -9,13 +9,13 @@
     <i class="fa fa-check-square"></i>
   <% end %>
   <%= link_to course_lesson_path(@course, lesson) do %>
-    <%= lesson.row_order_rank + 1 %>
+    <b><%= lesson.row_order_rank + 1 %></b>
     <%= lesson.title %>
   <% end %>
 <% else %>
   <i class="fa fa-check-square"></i>
   <%= link_to course_lesson_path(@course, lesson) do %>
-    <%= lesson.row_order_rank + 1 %>
+    <b><%= lesson.row_order_rank + 1 %></b>
     <%= lesson.title %>
   <% end %>
 <% end %>
