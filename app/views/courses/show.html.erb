@@ -17,6 +17,11 @@
           <i class="fa fa-graduation-cap"></i>
           <%= @course.title %>
         </h3>
+        <div class="row">
+          <% if @course.avatar.attached? %>
+            <%= image_tag @course.avatar, width: "200px" %>
+          <% end %>
+        </div>
         <p>
           <i class="fa fa-clock"></i>
           <%= @course.updated_at.strftime("%m/%Y") %>
