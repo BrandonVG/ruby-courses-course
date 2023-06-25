@@ -12,6 +12,8 @@
     "chart.js": "^4.3.0",
     "chartkick": "^5.0.1",
     "esbuild": "^0.18.1",
+    "jquery": "^3.7.0",
+    "jquery-ui-dist": "^1.13.2",
     "sass": "^1.63.3",
     "trix": "^2.0.5"
   },
