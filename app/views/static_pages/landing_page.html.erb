@@ -28,8 +28,7 @@
     <div class="card card-body">
       <h1><i class="fa fa-graduation-cap"></i></h1>
       <p>
-        <%= Course.count %>
-        Online courses
+        <%= pluralize(Course.approved.published.count, 'online courses') %>
       </p>
       <div class="row">
         <p>Explore a variety of fresh topics</p>

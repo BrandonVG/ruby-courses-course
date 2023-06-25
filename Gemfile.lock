@@ -198,6 +198,8 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
+    ranked-model (0.4.8)
+      activerecord (>= 4.2)
     ransack (4.0.0)
       activerecord (>= 6.1.5)
       activesupport (>= 6.1.5)
@@ -282,6 +284,7 @@ DEPENDENCIES
   pundit (~> 2.3)
   rails (~> 7.0.5)
   rails-erd
+  ranked-model (~> 0.4.8)
   ransack (~> 4.0)
   redis (~> 4.0)
   rolify (~> 6.0)
