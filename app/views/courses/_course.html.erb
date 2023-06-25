@@ -2,6 +2,11 @@
   <div class="card-header">
     <h4><i class="fa fa-graduation-cap"></i> <%= link_to course.title, course_path(course) %></h4>
   </div>
+  <% if course.avatar.attached? %>
+    <div class="card-img-top">
+      <%= image_tag course.avatar, height: "200px", width: "100%" %>
+    </div>
+  <% end %>
   <div class="card-body">
     <small>
       <%= simple_format(course.short_description) %>

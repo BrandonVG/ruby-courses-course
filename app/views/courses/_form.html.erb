@@ -10,12 +10,17 @@
       <% if @course.avatar.attached? %>
         <%= image_tag @course.avatar, width: "200px" %>
       <% end %>
+      <div class="row">
+        <%= @course.avatar.filename %>
+      </div>
     </div>
     <div class="row">
       <%= f.file_field :avatar  %>
     </div>
+    <small><%= f.error :avatar, class: 'text-danger' %></small>
     <%= f.label :description %>
     <%= f.rich_text_area :description %>
+    <small><%= f.error :description, class: 'text-danger' %></small>
     <%= f.input :short_description %>
     <%= f.input :language, collection: Course.languages, include_blank: true %>
     <%= f.input :level, collection: Course.levels, include_blank: true %>

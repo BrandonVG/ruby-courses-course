@@ -97,3 +97,7 @@ gem "chartkick", "~> 5.0"
 gem "groupdate", "~> 6.2"
 
 gem "ranked-model", "~> 0.4.8"
+
+gem 'active_storage_validations'
+
+
